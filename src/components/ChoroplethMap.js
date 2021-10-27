@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 import Datamap from 'datamaps/dist/datamaps.world.min.js';
 import d3 from 'd3';
-import CanadaJson from './Canada.topo.json';
-
+import Table from './table/table.js';
+var test = null ;
+var dataTable1=null
+var dataTable2=null
 class ChoroplethMap extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {clicked: false , firstSecond : false};
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      handleClick = () => {
+          console.log("asd");
+        this.setState({ firstSecond: !this.state.firstSecond })
+        this.setState({ clicked: true })
+      }
     componentDidMount() {
+        
         // Datamaps expect data in format:
         // { "USA": { "fillColor": "#42a844", numberOfWhatever: 75},
         //   "FRA": { "fillColor": "#8dc386", numberOfWhatever: 43 } }
         let dataset = {};
-
+/*
         // We need to colorize every country based on "numberOfWhatever"
         // colors should be uniq for every value.
         // For this purpose we create palette(using min/max this.props.data-value)
@@ -30,52 +44,26 @@ class ChoroplethMap extends Component {
                 value = item[1];
             dataset[iso] = { numberOfThings: value, fillColor: paletteScale(value) };
         });
-
-        let map = new Datamap({
-            element: document.getElementById('cloropleth_map'),
-            scope: 'canada',
-            geographyConfig: {
-                popupOnHover: true,
-                highlightOnHover: true,
-                borderColor: '#444',
-                highlightBorderWidth: 1,
-                borderWidth: 0.5,
-                dataJson: CanadaJson,
-                popupTemplate: function (geo, data) {
-                    // don't show tooltip if country don't present in dataset
-                    if (!data) { return; }
-                    // tooltip content
-                    return ['<div class="hoverinfo">',
-                        '<strong>', geo.properties.name, '</strong>',
-                        '<br>Count: <strong>', data.numberOfThings, '</strong>',
-                        '</div>'].join('');
-                }
-            },
-            fills: {
-                HIGH: '#afafaf',
-                LOW: '#123456',
-                MEDIUM: 'blue',
-                UNKNOWN: 'rgb(0,0,0)',
-                defaultFill: '#eee'
-            },
-            data: dataset,
-            setProjection: function (element) {
-                var projection = d3.geo.mercator()
-                    .center([-106.3468, 68.1304]) // always in [East Latitude, North Longitude]
-                    .scale(200)
-                    .translate([element.offsetWidth / 2, element.offsetHeight / 2]);
-
-                var path = d3.geo.path().projection(projection);
-                return { path: path, projection: projection };
-            }
-        });
+        */
+       this.handleClick = this.handleClick.bind(this);
+        var data;
+        
     }
     render() {
+        
+        const clicked = this.state.clicked;
+        const check = this.state.firstSecond;
+        check?dataTable1 = test : dataTable2 = test;
         return (
+            <div  style={{width :"100%",}}>
+                
             <div id="cloropleth_map" style={{
                 height: "100%",
                 width: "100%",
-            }}></div>
+            }}>
+            </div>
+            </div>
+           
         );
     }
 }
