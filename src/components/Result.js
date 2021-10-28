@@ -73,108 +73,155 @@ const useScrollToTop = () => {
      // make topography data
      var topoProps1 = [
      ]
+     let obj = {information:"Site_1 information ",Site_code:properties1.Code , dataset:" " , value: " ", units: " ",Country:country1 ,Governorat:Governorate1,lat:coordinates1[0],log:coordinates1[1]};
+     readyToExportData.push(obj)
+     let emptyObj = { };
+     readyToExportData.push(emptyObj);
      let topoKeys1= Object.keys(TopoNames);
+     if(Topography){
+     
+      let obj = {information:" Topographic information"};
+      readyToExportData.push(obj);
      for(let i=0; i <topoKeys1.length;i++){
       let key = topoKeys1[i];
       let obj = { dataset:TopoNames[key].Final , value: properties1[key], units: TopoNames[key].Units };
       topoProps1.push(obj);
-      if(Topography){
+     
         readyToExportData.push(obj)
       }
-     }
+      readyToExportData.push(emptyObj);
 
-      // make Wind data
-      var windprops1 = [
-      ]
-      let windkeys1= Object.keys(windNAmes);
-      for(let i=0; i <windkeys1.length;i++){
-       let key = windkeys1[i];
-       let obj = { dataset:windNAmes[key].Final , value: properties1[key], units: windNAmes[key].Units };
-       windprops1.push(obj);
-       if(Wind){
-        readyToExportData.push(obj)
-      }
-      }
+     }
 
       // make Climate data
       var Climateprops1 = [
       ]
       let ClimateKeys1= Object.keys(ClimateNames);
+      if(Climate){
+        let obj = {information:" Climate information"};
+        readyToExportData.push(obj);
       for(let i=0; i <ClimateKeys1.length;i++){
        let key = ClimateKeys1[i];
        let obj = { dataset:ClimateNames[key].Final , value: properties1[key], units: ClimateNames[key].Units };
        Climateprops1.push(obj);
-       if(Climate){
+       
         readyToExportData.push(obj)
       }
+      readyToExportData.push(emptyObj);
       }
+
+      // make Wind data
+      var windprops1 = [
+      ]
+      let windkeys1= Object.keys(windNAmes);
+      if(Wind){
+        let obj = {information:" Wind energy information"};
+        readyToExportData.push(obj);
+      for(let i=0; i <windkeys1.length;i++){
+       let key = windkeys1[i];
+       let obj = { dataset:windNAmes[key].Final , value: properties1[key], units: windNAmes[key].Units };
+       windprops1.push(obj);
+      
+        readyToExportData.push(obj)
+      }
+      readyToExportData.push(emptyObj);
+      }
+
+     
 
       // make Solar data
       var Solareprops1 = [
       ]
       let SolarKeys1= Object.keys(SolarNames);
+      if(Solar){
+        let obj = {information:" Solar energy information"};
+        readyToExportData.push(obj);
       for(let i=0; i <SolarKeys1.length;i++){
        let key = SolarKeys1[i];
        let obj = { dataset:SolarNames[key].Final , value: properties1[key], units: SolarNames[key].Units };
        Solareprops1.push(obj);
-       if(Solar){
+       
         readyToExportData.push(obj)
       }
       }
 
       if(comparison){
-        let emptyObj = { dataset:" ", value:" ", units:" " };
+        let emptyObj = { };
         readyToExportData.push(emptyObj);
         readyToExportData.push(emptyObj);
         readyToExportData.push(emptyObj);
+
+        let obj = {information:" Site_2 information" ,Site_code:properties2.Code, dataset:" " , value: " ", units: " ",Country:country2 ,Governorat:Governorate2,lat:coordinates2[0],log:coordinates2[1]};
+     readyToExportData.push(obj)
+     readyToExportData.push(emptyObj);
      // make topography data
      var topoProps2 = [
     ]
     let topoKeys2= Object.keys(TopoNames);
+    if(Topography){
+
+      let emptyObj = { };
+      let obj = {information:" Topographic information"};
+     
+      readyToExportData.push(obj);
     for(let i=0; i <topoKeys2.length;i++){
      let key = topoKeys2[i];
      let obj = { dataset:TopoNames[key].Final , value: properties2[key], units: TopoNames[key].Units };
      topoProps2.push(obj);
-     if(Topography){
+     
       readyToExportData.push(obj)
     }
+    readyToExportData.push(emptyObj);
+
+    }
+
+     // make Climate data
+     var Climateprops2 = [
+    ]
+    let ClimateKeys2= Object.keys(ClimateNames);
+    if(Climate){
+     let obj = {information:" Climate information"};
+     readyToExportData.push(obj);
+    for(let i=0; i <ClimateKeys2.length;i++){
+     let key = ClimateKeys2[i];
+     let obj = { dataset:ClimateNames[key].Final , value: properties2[key], units: ClimateNames[key].Units };
+     Climateprops2.push(obj);
+     
+       readyToExportData.push(obj)
+     }
+     readyToExportData.push(emptyObj);
     }
 
      // make Wind data
      var windprops2 = [
      ]
      let windkeys2= Object.keys(windNAmes);
+     if(Wind){
+      let obj = {information:" Wind energy information"};
+      readyToExportData.push(obj);
      for(let i=0; i <windkeys1.length;i++){
       let key = windkeys2[i];
       let obj = { dataset:windNAmes[key].Final , value: properties2[key], units: windNAmes[key].Units };
       windprops2.push(obj);
-      if(Wind){
+     
         readyToExportData.push(obj)
       }
+      readyToExportData.push(emptyObj);
      }
 
-     // make Climate data
-     var Climateprops2 = [
-     ]
-     let ClimateKeys2= Object.keys(ClimateNames);
-     for(let i=0; i <ClimateKeys2.length;i++){
-      let key = ClimateKeys2[i];
-      let obj = { dataset:ClimateNames[key].Final , value: properties2[key], units: ClimateNames[key].Units };
-      Climateprops2.push(obj);
-      if(Climate){
-        readyToExportData.push(obj)
-      }
-     }
-
+    
      // make Solar data
      var Solareprops2 = [
      ]
      let SolarKeys2= Object.keys(SolarNames);
+     if(Solar){
+      let obj = {information:" Solar energy information"};
+      readyToExportData.push(obj);
      for(let i=0; i <SolarKeys2.length;i++){
       let key = SolarKeys2[i];
       let obj = { dataset:SolarNames[key].Final , value: properties2[key], units: SolarNames[key].Units };
       Solareprops2.push(obj);
-      if(Solar){
+     
         readyToExportData.push(obj)
       }
      }

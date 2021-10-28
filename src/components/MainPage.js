@@ -8,7 +8,7 @@ import { SocialIcon } from 'react-social-icons';
 import logo from './logo2.png';
 import {Redirect} from 'react-router-dom';
 import { useLocation,useHistory } from 'react-router-dom'
-import { FacebookShareButton, FacebookIcon ,TwitterShareButton,TwitterIcon,RedditIcon,RedditShareButton,WhatsappIcon,WhatsappShareButton} from "react-share"
+import { FacebookShareButton, FacebookIcon ,TwitterShareButton,TwitterIcon,RedditIcon,RedditShareButton,WhatsappIcon,WhatsappShareButton,LinkedinIcon,LinkedinShareButton} from "react-share"
 class MainPage extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
@@ -112,24 +112,30 @@ class MainPage extends Component {
                                   <FacebookShareButton
                   url="https://sites.google.com/view/nilenexus"
                   >
-                  <FacebookIcon logoFillColor="white" />
+                  <FacebookIcon logoFillColor="white"size={40}  />
               </FacebookShareButton>
 
               <TwitterShareButton
                   url="https://sites.google.com/view/nilenexus"
                   >
-                  <TwitterIcon logoFillColor="white" />
+                  <TwitterIcon logoFillColor="white" size={40} />
               </TwitterShareButton>
               <RedditShareButton
                   url="https://sites.google.com/view/nilenexus"
                   >
-                  <RedditIcon logoFillColor="white" />
+                  <RedditIcon logoFillColor="white" size={40} />
               </RedditShareButton>
               <WhatsappShareButton
                   url="https://sites.google.com/view/nilenexus"
                   >
-                  <WhatsappIcon logoFillColor="white" />
+                  <WhatsappIcon logoFillColor="white" size={40} />
               </WhatsappShareButton>
+
+              <LinkedinShareButton 
+                  url="https://sites.google.com/view/nilenexus"
+                  >
+                  <LinkedinIcon logoFillColor="white" size={40} />
+              </LinkedinShareButton>
                     
                     
                 </div>
