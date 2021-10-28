@@ -9,7 +9,7 @@ import {Viewer,Worker} from '@react-pdf-viewer/core';
 import {defaultLayoutPlugin} from '@react-pdf-viewer/default-layout';
 import '@react-pdf-viewer/core/lib/styles/index.css'
 import '@react-pdf-viewer/default-layout/lib/styles/index.css'
-import pdffile from './Nile_Nexus.pdf'
+import pdffile from './Nile_Nexus1.pdf'
 function htmlNavigate () {
   const location = useLocation();
   let history = useHistory();
